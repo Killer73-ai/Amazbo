@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Enigma</title>
+    <style>
+        body {
+            background-color: black;
+            color: lawngreen;
+
+        }
+
+        #decryptionContainer {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #decryptedContainer {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        textInput {
+            color: lawngreen;
+            background-color: black;
+            outline-color: lawngreen;
+            border-block-style: dashed;
+            border-color: lawngreen;
+            border-width: thin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+        }
+        button {
+            color: lawngreen;
+            background-color: black;
+            outline-color: lawngreen;
+            border-block-style: dashed;
+            border-color: lawngreen;
+            border-width: thin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+        }
+
+        input {
+            color: lawngreen;
+            background-color: black;
+            outline-color: lawngreen;
+            border-block-style: dashed;
+            border-color: lawngreen;
+            border-width: thin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+        }
+        xmp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <xmp>
+         ______           _                                   _____    ____
+        |  ____|         (_)                                 |_   _|  / __ \
+        | |__     _ __    _    __ _   _ __ ___     __ _        | |   | |  | |
+        |  __|   | '_ \  | |  / _` | | '_ ` _ \   / _` |       | |   | |  | |
+        | |____  | | | | | | | (_| | | | | | | | | (_| |  _   _| |_  | |__| |
+        |______| |_| |_| |_|  \__, | |_| |_| |_|  \__,_| (_) |_____|  \____/
+                               __/ |
+                              |___/
+    </xmp>
+
+
+    <form onsubmit="return executeCommand()">
+        <input type="text" id="commandInput">
+        <input type="submit" value="Execute">
+    </form>
+
+    <div id="decryptionContainer">
+        <input id="textInput">
+        <button onclick="decryptText()">Decrypt</button>
+    </div>
+
+    <div id="decryptedContainer">
+        <p id="decryptedText"></p>
+    </div>
+
+
+    <script>
+        function executeCommand() {
+            var command = document.getElementById("commandInput").value;
+
+            if (command === "decrypt") {
+                document.getElementById("decryptionContainer").style.display = "flex";
+            } else {
+                alert("Command not recognized.");
+            }
+
+            return false;
+        }
+
+        function decryptText() {
+            var text = document.getElementById("textInput").value;
+            var decryptedText = text.split("").reverse().join("")
+            document.getElementById("decryptedContainer").style.display = "flex";
+            document.getElementById("decryptedText").innerHTML = decryptedText;
+        }
+
+    </script>
+
+</body>
+</html>
